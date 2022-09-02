@@ -1,0 +1,70 @@
+{% extends 'nav.html' %}
+{% block title %}
+| Home
+{% endblock title %}
+
+{% block body %}
+
+
+<div class="container my-1">
+<div id="carouselExampleControls" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-bs-interval="3000">
+      <img src="/static/img1.jpg"style="width:600px;height:450px"; class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/static/img2.jpg"style="width:600px;height:450px"; class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item" data-bs-interval="2000">
+      <img src="/static/img3.jpg"style="width:600px;height:450px"; class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </a>
+</div>
+</div>
+<div class="container my-3">
+<style>
+h3 {text-align: center;}
+
+</style>
+
+<h3><font color="darkgray"><i><b>Events</b></i></font></h3>
+</div>
+  <div class="container my-5">
+
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    
+      {% for event in event_list%}
+      
+      
+      <div class="col">
+        <div class="card text-white bg-dark card border-dark">
+          <img src="{{event.image.url}}" alt="" style="width:auto;height:300px">
+          <div class="card-body">
+            <p class="card-text"> <strong> {{ event }} :</strong> <ul><li>{{ event.description }}</li><li>At {{ event.block }}</li></ul> </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                <button type="button" class="btn btn-sm btn-outline-secondary">Register</button>
+              </div>
+              <small class="text-center"> <font color = gray> On {{ event.date }}  </font></small>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+     
+    </div>
+  </div>
+
+
+
+
+{% endblock body %}
